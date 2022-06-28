@@ -18,14 +18,14 @@ client = MongoClient('localhost', 27017)
 db = client['library']
 
 # set up insert data
-post = {"name": "000", "genre":"newBookGenre"}
+# post = {"name": "000", "genre":"newBookGenre"}
 # collectionInput1 = {"name": newBookName, "genre":newBookGenre, "year": newBookYear}
 
 
 collectionBooks = db.books
 collectionMagaz = db.magazines
 
-collectionMagaz.insert_one(post).inserted_id
+# collectionMagaz.insert_one(post).inserted_id
 # collectionBooks.insert_one(post).inserted_id
 
 

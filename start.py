@@ -55,7 +55,7 @@ dbM = dbMagazines.dbM
 cursorM = dbMagazines.cursorM
 
 
-
+# clear all rows so we would have duplicates
 for rows in (Book.select().dicts()):
     Book.get().delete_instance()
 
@@ -63,13 +63,13 @@ for rows in (Magazine.select().dicts()):
     Magazine.get().delete_instance()
 
 
-
+# clear all rows so we would have duplicates
 collectionBooks.delete_many({})
 collectionMagaz.delete_many({})
 
 
 #   orm setup  start
-print("setup PeeWee DB")
+print("setup PeeWee SQLight DB")
 print(dbBook.create_tables)
 with dbBook:
     dbBook.create_tables([Book])
@@ -416,7 +416,7 @@ def collectionDisplayBook():
 
 def collectionDisplayMagazine():
     find = collectionMagaz.find()
-    print(find)
+    # print(find)
     print("___ collection:  Magazine _____")
     for docum in find:
         print("title: " + docum["title"] + "  issue: " + docum["issue"] + " year: " + docum["issueTitle"])
@@ -501,6 +501,14 @@ for result in reverse(read("books", Book)):
     tree.insert(parent='', index='end', iid=result, text="", values=(result), tag="orow")
 
         
+#  functions for export. 
+def exportSQLight():
+    insertSQLightIntoMysql(dbBooks, dbMagazines,mySQLcur, mySQLcon, Book, Magazine, Book1, Magazine1)
+    
+
+def exportMySQL():
+    insertMysqlToPostgreSQL(mySqlDB, postSQLcur, postSQLcon, Book1, Magazine1, BookpSQL, MagazinepSQL)
+    
 
 # gui part
 labels = GuiLabel()
@@ -515,16 +523,6 @@ labelCollectionMagazine = GuiCollectionButtonsMagazine()
 labelCollectionMagazine.setUpFunc(collectionAddMagazine, collectionEditMagazine, collectionDeleteMagazine, collectionDisplayMagazine)
 
 
-
-
-
-def exportSQLight():
-    insertSQLightIntoMysql(dbBooks, dbMagazines,mySQLcur, mySQLcon, Book, Magazine, Book1, Magazine1)
-    
-
-def exportMySQL():
-    insertMysqlToPostgreSQL(mySqlDB, postSQLcur, postSQLcon, Book1, Magazine1, BookpSQL, MagazinepSQL)
-    
 
 buttonExportSQLightTomySQL = Button(text = "aSQLight to MYsql", command = exportSQLight )
 buttonExportSQLightTomySQL.place(x = 360, y = 60, width = 75, height = 35)
