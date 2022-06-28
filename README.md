@@ -81,27 +81,30 @@ dont forget to add them
 # Example screenshots
 
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
-
 
 ## add data to sqLight
-![alt text](images/addData.png)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/addData.PNG)
+
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/sqlite1.PNG)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/sqlite2.PNG)
+
+
 ## export it to mSQL, postgreSQL
 
 ### mySQL
-![alt text](images/mySQL.png)
-![alt text](images/mySQL1.png)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/mySQL.PNG)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/mySQL1.PNG)
 
 ### postgreSQL
-![alt text](images/pSQL.png)
-![alt text](images/pSQL1.png)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/pSQL.PNG)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/pSQL1.PNG)
 
 ## added data to collections
-![alt text](images/collection.png)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/collection.PNG)
 
 ### displayed collection
-![alt text](images/collection1.png)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/collection1.PNG)
 
 
 ## added and edited  data
-![alt text](images/collection2.png)
+![alt text](https://github.com/Bessonica/lab1/blob/main/images/collection2.PNG)
