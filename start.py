@@ -106,46 +106,13 @@ def read(databaseName, tableORM):
         
 
 
-    #    SQL PART
-
-    # conn = sqlite3.connect("data.db")
-    # cursor = conn.cursor()
-
-    # cursor.execute("""CREATE TABLE IF NOT EXISTS books (id integer PRIMARY KEY AUTOINCREMENT, name text NOT NULL, genre text NOT NULL); """)
-    if databaseName == "books":
-        cursor.execute("SELECT * FROM books")
-        results = cursor.fetchall()
-        db.commit()
-    elif databaseName == "magazines":
-        cursorM.execute("SELECT * FROM magazines")
-        results = cursorM.fetchall()
-        dbM.commit()
-
-
     
     return resultORM
     #return results
     
 
 
-def readM():
-    # Magazine
-    cursorM.execute("SELECT * FROM magazines")
-    results = cursorM.fetchall()
-    # conn.commit()
-    dbM.commit()
 
-    resultORM = []
-    for rows in (Magazine.select().dicts()):
-        # print(rows)
-        temp = (0, rows['title'], rows['issue'], rows['issueTitle'])
-        resultORM.append(tuple(temp))
-
-    print(resultORM)
-    print("   READ M    RESULTS")
-    print(results)
-    # return results
-    return resultORM
 
 
 #----start   sqlite related   start
@@ -165,33 +132,6 @@ def sqlData_add(dataBaseName, arg1, arg2, arg3, tableORM):
 
     
 
-
-
-    #   clean SQLight below
-    print("deez nuts")
-    database1 = "books"
-    database2 = "magazines"
-
-
-    print("book add args")
-    print(arg1, arg2, arg3)
-
-    # зачем этот каунт тут ????
-    cursor.execute("SELECT COUNT(*) from books WHERE name = '" +
-    arg1 +"' ")
-    result = cursor.fetchone()
-
-
-    if int(result[0]) > 0:
-        print("error")
-        print(result[0])
-    elif dataBaseName == "books":
-        cursor.execute("INSERT INTO '" + str(database1) +"'(name, genre, year) VALUES(?, ?, ?)", (arg1, arg2, arg3))
-        db.commit()
-        print("added to books")
-    elif dataBaseName == "magazines":
-        cursorM.execute("INSERT INTO '" + str(database2) +"'(title, issue, issueTitle) VALUES(?, ?, ?)", (arg1, arg2, arg3))
-        dbM.commit()
 
 
 def sqlData_delete(deleteObject, deleteID, databaseName, tableORM):
@@ -216,15 +156,6 @@ def sqlData_delete(deleteObject, deleteID, databaseName, tableORM):
         
 
 
-    #  sql part
-    #find book in db by id
-    if databaseName == "books":
-        cursor.execute("DELETE FROM books WHERE id = '" + str(deleteID) + "'")
-        db.commit()
-    elif databaseName == "magazines":
-        cursorM.execute("DELETE FROM magazines WHERE id = '" + str(deleteID) + "'")
-        dbM.commit()
-  
 
     
 def sqlData_edit(updatObject, updateID, databaseName, arg1, arg2, arg3, tableORM):
@@ -260,14 +191,7 @@ def sqlData_edit(updatObject, updateID, databaseName, arg1, arg2, arg3, tableORM
         rowToEdit.save()
         print("row to delte ORM")
         print(rowToEdit)
-        
 
-    if databaseName == "books":
-        cursor.execute("UPDATE books SET name = '" + str(arg1) + "', genre = '" + str(arg2) + "', year = '" + str(arg3) + "' WHERE id ='" + str(updateID) + "'")
-        db.commit()
-    elif databaseName == "magazines":
-        cursorM.execute("UPDATE magazines SET title = '" + str(arg1) + "', issue = '" + str(arg2) + "', issueTitle = '" + str(arg3) + "' WHERE id ='" + str(updateID) + "'")
-        dbM.commit()
 
     # cursor.execute("UPDATE books SET name = '" + str(editBookName) + "', genre = '" + str(editBookGenre) + "', year = '" + str(editBookYear) + "' WHERE id ='" + str(updateID) + "'")
     # db.commit()
@@ -559,7 +483,7 @@ treeMagaz.grid(row=10, column=5, columnspan=4, rowspan=5, padx=10, pady=10)
 
 #      READ DATA from tables and add to tree
 
-#upddate magazine tree
+#upddate magazine tree  (so it wouldnt duplicate)
 for data in treeMagaz.get_children():
     treeMagaz.delete(data)
 
@@ -569,7 +493,7 @@ for result in reverse(read("magazines", Magazine)):
 
 
     
-        #upddate book tree
+        #upddate book tree   (so it wouldnt duplicate)
 for data in tree.get_children():
     tree.delete(data)
 
@@ -629,4 +553,3 @@ window.mainloop()
 
 
 
-read("books", Book)
