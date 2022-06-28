@@ -10,6 +10,8 @@ we have books and magazines table
 
 We have to export 3 rows from sqlite into mySQL database and export 2 rows into postgSQL (17 вариант)
 
+### Screenshot examples are down bellow
+
 package used, used virtual env:
 - mysql-connector==2.2.9
 - mysql-connector-python==8.0.29
@@ -74,3 +76,32 @@ functions, responsible for tree management
 
 # Screenshots
 dont forget to add them
+
+
+# Example screenshots
+
+
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+
+## add data to sqLight
+![alt text](images/addData.png)
+## export it to mSQL, postgreSQL
+
+### mySQL
+![alt text](images/mySQL.png)
+![alt text](images/mySQL1.png)
+
+### postgreSQL
+![alt text](images/pSQL.png)
+![alt text](images/pSQL1.png)
+
+## added data to collections
+![alt text](images/collection.png)
+
+### displayed collection
+![alt text](images/collection1.png)
+
+
+## added and edited  data
+![alt text](images/collection2.png)

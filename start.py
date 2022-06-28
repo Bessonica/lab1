@@ -419,7 +419,7 @@ def collectionDisplayMagazine():
     # print(find)
     print("___ collection:  Magazine _____")
     for docum in find:
-        print("title: " + docum["title"] + "  issue: " + docum["issue"] + " year: " + docum["issueTitle"])
+        print("title: " + docum["title"] + "  issue: " + docum["issue"] + " issueTitle: " + docum["issueTitle"])
 
 
     print("___ End of collection:  Magazine _____")
